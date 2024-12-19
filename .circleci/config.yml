@@ -27,7 +27,7 @@ workflows:
             resource_class: "medium"
           project-path: "src"
           test-platform: "playmode"
-          context: cpe-unity
+          context: Unity-credentials
       - unity/test:
           name: "test-windows"
           step-name: "Check if the tests run and results are uploaded"
@@ -41,7 +41,7 @@ workflows:
             target_platform: "windows-il2cpp"
           project-path: "src"
           test-platform: "playmode"
-          context: cpe-unity
+          context: Unity-credentials
       - unity/test:
           name: "test-osx"
           step-name: "Check if the tests run and results are uploaded"
@@ -54,10 +54,10 @@ workflows:
             resource_class: "large"
           project-path: "src"
           test-platform: "playmode"
-          context: cpe-unity
+          context: Unity-credentials
 
       # Build for several platforms using IL2CPP for the scripting backend
-      # More info: https://game.ci/docs/circleci/build  
+      # More info: https://game.ci/docs/circleci/build
       - unity/build:
           name: "build-linux64-il2cpp"
           step-name: "Build StandaloneLinux64"
@@ -72,7 +72,7 @@ workflows:
           project-path: "src"
           build-target: StandaloneLinux64
           compress: true
-          context: cpe-unity
+          context: Unity-credentials
       - unity/build:
           name: "build-Windows64-il2cpp"
           step-name: "Build StandaloneWindows64 il2cpp"
@@ -87,7 +87,7 @@ workflows:
           project-path: "src"
           build-target: StandaloneWindows64
           compress: true
-          context: cpe-unity
+          context: Unity-credentials
       - unity/build:
           name: "build-osx-il2cpp"
           step-name: "Build macOS IL2CPP"
@@ -101,7 +101,7 @@ workflows:
           project-path: "src"
           build-target: StandaloneOSX
           compress: true
-          context: cpe-unity
+          context: Unity-credentials
 
       # Build for several other platforms
       - unity/build:
@@ -121,7 +121,7 @@ workflows:
           # if we set "compress" to false, we can play the game from
           # the CircleCI web app by going in the "Artifacts" tab.
           compress: false
-          context: cpe-unity
+          context: Unity-credentials
       - unity/build:
           name: "build-android"
           step-name: "Build Android"
@@ -135,7 +135,7 @@ workflows:
             resource_class: "large"
           project-path: "src"
           build-target: "Android"
-          context: cpe-unity
+          context: Unity-credentials
       - unity/build:
           name: "build-ios"
           step-name: "Build iOS"
@@ -149,7 +149,7 @@ workflows:
             resource_class: "large"
           project-path: "src"
           build-target: "iOS"
-          context: cpe-unity
+          context: Unity-credentials
       - unity/build:
           name: "build-tvOS"
           step-name: "Build Apple's tvOS"
@@ -164,4 +164,4 @@ workflows:
           project-path: "src"
           build-target: tvOS
           compress: true
-          context: cpe-unity
+          context: Unity-credentials
